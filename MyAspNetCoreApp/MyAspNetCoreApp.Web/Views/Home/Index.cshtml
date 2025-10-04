@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Css
+{
+    <link rel="stylesheet" href="~/css/example.css" asp-append-version="true" />        @*~ işareti wwwroot dosyası olduğunu gösteriyor.*@
+
+    <style>
+        h1 {
+            color:red;
+            background-color:blue;
+        }
+    </style>
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        alert("Sayfamıza Hoşgeldin.");
+
+        $(document).ready(function () {                 // bu jquery methodu yerine doğrudna js ile addEventListener("DOCContentLoaded") daha hızlı.
+            console.log("Sayfamıza hoşgeldin.");        // Jquery methodları da bu sekilde kullanılıyor.
+        })
+    </script>
+}
+
+<h1>Merhaba Dünya</h1>
+<hr />
+<h2>Merhaba Asp.Net</h2>
+
+<partial name="_MenuPartialView" />     @*Best Practice*@
+@await Html.PartialAsync("_MenuPartialView")

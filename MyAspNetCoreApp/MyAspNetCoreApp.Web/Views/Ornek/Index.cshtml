@@ -1,0 +1,45 @@
+﻿@using MyAspNetCoreApp.Web.Controllers
+
+@{
+    ViewData["Title"] = "Index";
+
+    var alert = "Uyarı mesajı";
+}
+
+<h1>Ornek controller, Index sayfasi</h1>
+
+@{
+    var name = ViewBag.name;
+    <p>@name</p>
+}
+<p>@name</p>
+
+<p>@ViewBag.name</p>
+<hr />
+<p>Yaş: @ViewData["age"]</p>
+
+@{
+    foreach (var item in ViewData["names"] as List<string>)  // as keyword'ü solundaki dinamik tipi sağındaki tipe döünştürebilirse dönüştürür, dönüştüremezse null döner.
+    {
+        <p>@item</p>
+    }   
+}
+
+<p>@ViewBag.person.Id | @ViewBag.person.Name | @ViewBag.person.Age</p>
+<hr />
+
+@model List<Product2>;       // Önce küçük model ile tipini belirledik sonra büyük Model ile veriyi aldık.
+
+@foreach (var item in Model)
+{
+    <p>@item.Id | @item.Name</p>
+}
+
+@{
+    alert = "Bu bir uyarı mesajı değil.";       // razor syntaxlar içerisinde değişkenleri istediğimiz yerde kullanabiliriz.
+
+    @: Bu bir metin.
+                                            // Razor syntax ile metin yazmak için yollar.
+    <text>Bu da bir metin</text>
+}
+
